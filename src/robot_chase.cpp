@@ -41,12 +41,12 @@ private:
     auto error_yaw = std::atan2(y, x);
 
     // control structure
-    if (error_distance > 0.35) {
-      message.angular.z = -0.5 * error_yaw;
+    if (error_distance > 0.4) {
       message.linear.x = 0.3 * error_distance;
+      message.angular.z = -0.5 * error_yaw;
     } else {
-      message.angular.z = 0;
       message.linear.x = 0;
+      message.angular.z = 0;
     }
 
     // publish velocity
@@ -54,6 +54,8 @@ private:
 
     RCLCPP_INFO(this->get_logger(), "Location (X%f, Y%f)", x, y);
     RCLCPP_INFO(this->get_logger(), "(D%f, Y%f)", error_distance, error_yaw);
+    RCLCPP_INFO(this->get_logger(), "(L%f, A%f)", message.linear.x,
+                message.angular.z);
   }
 
 public:
