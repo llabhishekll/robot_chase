@@ -104,7 +104,7 @@ The `barista_two_robots.launch.py` launch file contains the followings nodes:
 $ ros2 launch barista_robot_description barista_two_robots.launch.py
 ```
 
-**Node:** `Rick` is blue and `Morty` is red.
+**Note:** `Rick` is blue and `Morty` is red.
 
 ![10](./.assets/10.png)
 
